@@ -1,0 +1,267 @@
+ 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #419096;
+  display: flex;
+  flex-direction: column;
+  font-family: "Rubik", sans-serif;
+  min-height: 100vh;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #3b505c;
+  color: white;
+  padding: 15px 30px;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+main {
+  flex: 1;
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .principal {
+  width: 100%;
+  max-width: 1366px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .principal .imagems {
+  width: 100%;
+  max-width: 1366px;
+  height: 350px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-top-right-radius: 9%;
+  border-top-left-radius: 9%;
+ 
+}
+
+.conteudo {
+  width: 100%;
+  max-width: 750px;
+  padding: 20px;
+  color: #182125;
+  font-size: 16px;
+  line-height: 30px;
+  z-index: 3;
+  text-align: justify;
+}
+
+.conteudo .subtitulo {
+  font-family: "Secular One", sans-serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.conteudo .descricao {
+  font-size: 16px;
+  line-height: 28px;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  margin-bottom: auto;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botoes {
+  position: fixed;
+  top: 10%; 
+  right: 0;
+  width: 180px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 20px 0;
+  z-index: 5;
+  overflow-y: scroll;
+
+}
+
+.botoes .botao {
+  width: 80px;
+  border: none;
+  cursor: pointer;
+  border-radius: 16%;
+  transition: transform 0.3s ease;
+}
+
+.botoes .botao img {
+  width: 80px;
+  border-radius: 15%;
+}
+
+.botoes .botao#b1 {
+  transform: scale(1.2);
+  box-shadow: 0 0 12px rgb(141, 255, 141);
+}
+
+.botao:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 255, 180, 1);
+}
+/*ATE AQUI */ 
+/* Toggle Modo Escuro */
+.toggle-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 20;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70px;
+  height: 34px;
+  background: #fff;
+  border-radius: 34px;
+  padding: 0 5px;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.toggle .icon {
+  font-size: 16px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.toggle .slider {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  background: #ccc;
+  border-radius: 50%;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+#toggle-mode:checked + .toggle .slider {
+  left: 39px;
+}
+
+#toggle-mode {
+  display: none;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #3b505c;
+  color: #ffffff;
+}
+
+body.dark-mode header {
+  background-color: #419096;
+}
+
+body.dark-mode .conteudo,
+body.dark-mode .subtitulo,
+body.dark-mode .descricao {
+  color: #ffffff;
+}
+
+body.dark-mode .toggle {
+  background: #444;
+}
+
+body.dark-mode .slider {
+  background: #419096;
+}
+
+body.dark-mode .botoes {
+  background-color: rgba(65, 144, 150, 0.5);
+}
+
+/* Colorblind selector */
+.colorblind-selector {
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  z-index: 20;
+}
+
+#colorblind-mode {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+body.dark-mode #colorblind-mode {
+  background-color: #3b505c;
+  color: #fff;
+  border-color: #555;
+}
+
+#filtro-visual {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Corrigido de 100vw para 100vh */
+  pointer-events: none;
+  z-index: 9999;
+  backdrop-filter: none;
+}
+
+/* Filtros para tipos de daltonismo */
+body[data-colorblind="protanopia"] #filtro-visual {
+  backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(-25deg);
+}
+
+body[data-colorblind="deuteranopia"] #filtro-visual {
+  backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(15deg);
+}
+
+body[data-colorblind="tritanopia"] #filtro-visual {
+  backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(75deg);
+}
+
+/* COPIAR E COLAR A UL, EM CADA UM DOS CSS, A UL ESTA EM RESET.CSS*/
