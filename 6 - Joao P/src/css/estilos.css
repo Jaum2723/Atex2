@@ -1,0 +1,333 @@
+ 
+  html, body {
+    height: 100%;
+  }
+  
+  /* Background principal */
+  body {
+    background-color: #419096;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Cabeçalho fixo */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3b505c;
+    color: white;
+    padding: 17px;
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  /* Conteúdo principal ocupa o restante da tela */
+  main {
+    flex: 1;
+    padding-top: 80px; /* espaço para o header */
+  }
+  
+  main .principal {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  main .principal .imagems {
+    margin-top: 15px;
+    width: 1900px;
+    height: 800px;
+    object-fit: cover;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Conteúdo de texto */
+  .conteudo {
+    margin-top: 250px;
+    font-family: "Rubik";
+    color: #182125;
+    font-size: 16px;
+    line-height: 30px;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    max-width: 750px;
+    justify-content: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 3;
+    max-height: 800px;
+    overflow: hidden;
+  }
+  
+  .conteudo .subtitulo {
+    font-family: "Secular One";
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  
+  .conteudo .descricao {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  /* Footer sempre no fundo */
+  footer {
+    font-size: 25px;
+    margin-bottom: -450px;
+    background: #333;
+    color: white;
+    text-align: center;
+    position: relative;
+
+    
+  }
+  
+  /* Container da página segura tudo */
+  .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Botões fixos na lateral */
+  .botoes {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 1%;
+    right: 0;
+    width: 180px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  .botoes .botao {
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 80px;
+    border-radius: 16%;
+    margin-top: 20px;
+  }
+  
+  .botoes .botao img {
+    border-radius: 15%;
+    width: 80px;
+    height: auto;
+    display: block;
+  }
+  
+  .botoes .botao#b1 {
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgb(141, 255, 141);
+  }
+  
+  .botao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 255, 180, 1);
+  }
+  
+  /* Toggle de modo escuro */
+  .toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;
+  }
+  
+  .toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70px;
+    height: 34px;
+    background: #fff;
+    border-radius: 34px;
+    padding: 0 8px;
+    cursor: pointer;
+  }
+  
+  .toggle .slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    background: #ccc;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  
+  #toggle-mode:checked + .toggle .slider {
+    left: 39px;
+  }
+  
+  #toggle-mode {
+    display: none;
+  }
+  
+  .toggle .icon {
+    z-index: 2;
+    font-size: 14px;
+  }
+  
+  /* Estilos modo escuro */
+  body.dark-mode {
+    background-color: #3b505c;
+    color: #ffffff;
+  }
+  
+  body.dark-mode header {
+    background-color: #419096;
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+  }
+  
+  body.dark-mode .conteudo,
+  body.dark-mode .conteudo .subtitulo,
+  body.dark-mode .conteudo .descricao {
+    color: #ffffff;
+  }
+  
+  body.dark-mode .toggle {
+    background: #444;
+  }
+  
+  body.dark-mode .toggle .slider {
+    background: #419096;
+  }
+  
+  body.dark-mode .botoes {
+    background-color: rgba(65, 144, 150, 0.5);
+  }
+  
+  body.dark-mode .botao:hover {
+    box-shadow: 0 0 10px rgba(0, 255, 180, 1);
+  }
+  
+  /* Seletor daltonismo */
+  .colorblind-selector {
+    position: absolute;
+    top: 35px;
+    right: 1px;
+    z-index: 10;
+  }
+  
+  #colorblind-mode {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  body.dark-mode #colorblind-mode {
+    background-color: #3b505c;
+    color: #fff;
+    border-color: #555;
+  }
+  
+  /* Filtro visual para daltonismo */
+  #filtro-visual {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    backdrop-filter: none;
+  }
+  
+  body[data-colorblind="protanopia"] #filtro-visual {
+    backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(-25deg);
+  }
+  
+  body[data-colorblind="deuteranopia"] #filtro-visual {
+    backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(15deg);
+  }
+  
+  body[data-colorblind="tritanopia"] #filtro-visual {
+    backdrop-filter: brightness(1.1) contrast(1.2) saturate(1.4) hue-rotate(75deg);
+  }
+  
+  /* Responsividade */
+  @media (max-width: 1000px) {
+    .conteudo {
+      left: 5%;
+      right: 5%;
+      font-size: 14px;
+      line-height: 26px;
+      display: block;
+      flex-wrap: wrap;
+      margin-right: 175px;
+      text-align: justify;
+      max-height: 800px;
+      overflow: hidden;
+}
+  
+    .conteudo .subtitulo {
+      font-size: 28px;
+      display: block;
+      flex-wrap: wrap;
+      row-gap: 25px;
+      
+    }
+
+  
+  
+    .botoes {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 1%;
+        right: 0;
+        width: 180px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+  
+ 
+    header {
+      font-size: 24px;
+    }
+
+   .final {
+        background: #333;
+        color: white;
+        text-align: center;
+        display: block;
+        position: static;
+      }
+
+      main .principal .imagems {
+        margin-top: 0;
+        width: 1000px;
+        height: 400px;
+        object-fit: cover;
+        display: flex;
+        flex-wrap: wrap;
+      }
+  }
+  
